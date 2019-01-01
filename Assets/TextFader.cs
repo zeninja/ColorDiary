@@ -8,7 +8,7 @@ public class TextFader : MonoBehaviour {
 	Color start;
 	Color current;
 
-	void Start() {
+	void Awake() {
 		start = GetComponent<Text>().color;
 	}
 

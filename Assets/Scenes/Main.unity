@@ -527,7 +527,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 0, b: 0, a: 1}
+    m_NormalColor: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -606,6 +606,7 @@ GameObject:
   - component: {fileID: 1394394090}
   - component: {fileID: 1394394093}
   - component: {fileID: 1394394094}
+  - component: {fileID: 1394394095}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -639,7 +640,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 519420031}
-  m_PlaneDistance: 10
+  m_PlaneDistance: 5
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -737,7 +738,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glossary: {fileID: 282993243}
   ui_glossaryButton: {fileID: 2129573494}
-  ui_resetTextButton: {fileID: 0}
+--- !u!114 &1394394095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1394394089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0.5
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!1 &1398480832
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,8 +1087,12 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4274396964090714, guid: 1dee8395d3dd0ba4ea8c43ff14a2719a, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 555
+      objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 114360918828866708, guid: 1dee8395d3dd0ba4ea8c43ff14a2719a, type: 2}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 1dee8395d3dd0ba4ea8c43ff14a2719a, type: 2}
   m_IsPrefabAsset: 0
 --- !u!224 &1772486022 stripped

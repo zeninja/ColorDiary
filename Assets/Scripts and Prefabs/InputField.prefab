@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 114005137240532880}
   - component: {fileID: 114447183659355512}
   - component: {fileID: 114126267446129920}
-  - component: {fileID: 114360918828866708}
   m_Layer: 0
   m_Name: InputField
   m_TagString: Untagged
@@ -226,27 +225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0b83b83494b8e4a8d59a665797d298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114360918828866708
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1347467237661712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c05fa9a0a344224692df677acb021af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentColor:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  startColor:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
 --- !u!114 &114447183659355512
 MonoBehaviour:
   m_ObjectHideFlags: 1
