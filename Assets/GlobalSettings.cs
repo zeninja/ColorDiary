@@ -25,8 +25,10 @@ public class GlobalSettings : MonoBehaviour  {
 
 	void LoadInfo() {
 		GameData d = SaveSystem.LoadInfo();
-		glossary   = d.glossary;
-		colors     = d.colors;
+		if(d != null) {
+			glossary   = d.glossary;
+			colors     = d.colors;
+		}
 	}
 
 	public void UpdateText(List<string> s) {

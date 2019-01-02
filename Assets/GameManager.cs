@@ -29,6 +29,9 @@ public class GameManager : MonoBehaviour {
 	public static bool InInstructions() { return showInstructions; }
 	private static bool showInstructions = true;
 
+	public static bool ShowButtons() { return showButtons; }
+	private static bool showButtons = true;
+
 
 	private static GameManager instance;
 	public static GameManager GetInstance() {
@@ -55,5 +58,9 @@ public class GameManager : MonoBehaviour {
 
 	public void SwitchCalendarState() {
 		showCalendar = !showCalendar;
+	}
+
+	public void SwitchButtonState() {
+		showButtons = !showButtons;
 	}
 }

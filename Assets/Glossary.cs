@@ -29,7 +29,7 @@ public class Glossary : MonoBehaviour
     void Init()
     {
         // CheckSavedValues();
-		CreatePalette();
+		CreatePalette(ScreenInfo.w, ScreenInfo.h);
     }
 
     void Start()
@@ -37,20 +37,21 @@ public class Glossary : MonoBehaviour
         Init();
     }
 
-    void CreatePalette()
+    void CreatePalette(float x, float y)
     {
-        float w = ScreenInfo.w;
-        float h = ScreenInfo.h / colorCount;
+        float w = x;
+        float h = y / colorCount;
+
 
         for (int i = 0; i < colorCount; i++)
         {
             UnityEngine.UI.InputField newInput = Instantiate(input);
             allInputs.Add(newInput);
             newInput.transform.parent = transform;
+            newInput.transform.Find("Sprite").localScale = new Vector2(Screen.width , Screen.height / colorCount);
             newInput.GetComponent<RectTransform>().position = new Vector3(0, ScreenInfo.h - h * i - h / 2 - ScreenInfo.h / 2, 0);
-            newInput.transform.localScale = Vector2.one;
-            newInput.transform.Find("Sprite").localScale = new Vector2(ScreenInfo.x, ScreenInfo.y / colorCount);
             newInput.GetComponent<InputController>().fieldIndex = i;
+            newInput.transform.localScale = Vector3.one;
 
             GameObject p = newInput.transform.Find("Placeholder").gameObject;
             p.GetComponent<Text>().text = instructionsText[i];
@@ -70,27 +71,17 @@ public class Glossary : MonoBehaviour
 		}
     }
 
-    // List<string> userText = new List<string>();
     List<Text> userText = new List<Text>();
     List<string> savedText = new List<string>();
 
     public void SaveUserText(int index, string content) {
         userText[index].text = content;
         savedText[index] = content; 
-
-
         
-        // TODO: MAKE THIS ACTUALLY SAVE FOREVER
         GlobalSettings.GetInstance().UpdateText(savedText);
     }
 
     public void ShowInstructions(bool val) {
-        if(val) {
-            Debug.Log("Showing instructin");
-
-        }
-
-
         for(int i = 0; i <userText.Count; i++) {
             allInputs[i].text = val ? "" : savedText[i] ;
         }
