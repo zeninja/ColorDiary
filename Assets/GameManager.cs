@@ -23,6 +23,13 @@ public class GameManager : MonoBehaviour {
 	public static bool InGlossary() { return showGlossary; }
 	private static bool showGlossary = true;
 
+	public static bool InCalendar() { return showCalendar; }
+	private static bool showCalendar = true;
+
+	public static bool InInstructions() { return showInstructions; }
+	private static bool showInstructions = true;
+
+
 	private static GameManager instance;
 	public static GameManager GetInstance() {
 		return instance;
@@ -40,5 +47,13 @@ public class GameManager : MonoBehaviour {
 
 	public void SwitchGlossaryState() {
 		showGlossary = !showGlossary;
+	}
+
+	public void SwitchInstructionsState() {
+		showInstructions = !showInstructions;
+	}
+
+	public void SwitchCalendarState() {
+		showCalendar = !showCalendar;
 	}
 }

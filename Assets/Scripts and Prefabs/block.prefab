@@ -83,13 +83,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4661206577990154}
+  - component: {fileID: 114857132261084278}
   m_Layer: 0
   m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1968750018485144
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +202,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4659fc7eddb84704193d4bd135a1097d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 0, g: 0, b: 0, a: 0}
   selected: 0
+--- !u!114 &114857132261084278
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1728389373869916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85dac5116106c40e9be0a98c7c75eedd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frameParts: []
 --- !u!212 &212422984464353626
 SpriteRenderer:
   m_ObjectHideFlags: 1

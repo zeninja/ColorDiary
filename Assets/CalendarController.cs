@@ -5,26 +5,62 @@ using TMPro;
 
 public class CalendarController : MonoBehaviour {
 
+	private static CalendarController instance;
+	public static CalendarController GetInstance() { return instance; }
+
+	void Awake() {
+		if (instance == null) {
+			instance = this;
+		} else {
+			Destroy(gameObject);
+		}
+	}
+
+	public float revealDuration = 1;
+
+	// IEnumerator RefreshCalendar() {
+	// 	StopAllCoroutines();
+
+	// 	float t = 0;
+	// 	float d = revealDuration;
+
+	// 	while(t < d) {
+	// 		t += Time.fixedDeltaTime;
+	// 		float p = Mathf.Clamp01( t / d );
+
+	// 		yield return new WaitForFixedUpdate();
+	// 	}
+	// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	// frequency and stuff. useful but not actually implemented
+
 	int freqIndex = 0;
 	float frequency;
 	List<float> frequencies = new List<float>() { 5, 30, 60, 360, 960,  }; // in minutes.  960 = 16 hrs
 	string frequencyString;
 
-	// public TextMeshProUGUI frequencyDisplay;
-	// public TextMeshProUGUI timeLeft;
-
 	void Start() {
 		frequency = frequencies[freqIndex];
 		UpdateFrequencyString();
 	}
-
-	void Update() {
-		// UpdateMessage();
-	}
-
-	// void UpdateMessage() {
-	// 	frequencyDisplay.text  = frequencyString;
-	// }
 
 	public void IncrementFrequency() {
 		freqIndex = (freqIndex + 1) % frequencies.Count;

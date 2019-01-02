@@ -10,7 +10,7 @@ public class ColorSelector : MonoBehaviour
     public float constantFlowRate = 3;
     float gradientIndexPct;
 
-	public bool selected;
+    public static ColorSelector selectedBlock;
 
     void Start()
     {
@@ -28,21 +28,20 @@ public class ColorSelector : MonoBehaviour
 
     void HandleMouseInput()
     {
+
+
         Vector2 o = Vector2.zero;
 
         if (Input.GetMouseButtonDown(0))
         {
+            // if(GameManager.InGlossary()) { return; }
 			Vector3 downPos = Extensions.ScreenToWorld(Input.mousePosition);
             RaycastHit hitinfo;
-			// Debug.Log("down pos: " + downPos);
-			// Debug.DrawRay(downPos, Vector3.forward, Color.red, 3);
             if (Physics.Raycast(downPos, Vector3.forward, out hitinfo, 100))
             {
-				// Debug.Log("Raycasting. hit info: " + hitinfo.collider.gameObject);
                 if (hitinfo.collider.gameObject == s.gameObject)
                 {	
-					// Debug.Log("successs");
-					selected = true;
+					selectedBlock = this;
 					mouseDown = downPos;
                     if (Time.time - lastTapTime < doubleTapThreshold)
                     {
@@ -54,17 +53,21 @@ public class ColorSelector : MonoBehaviour
 				mouseDown = Vector2.zero;
 			}
         }
-        if (Input.GetMouseButton(0) && selected)
+        if (Input.GetMouseButton(0) && IsSelected())
         {
             o = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - mouseDown;
             o = new Vector2(o.x / (ScreenInfo.w / 2), o.y / (ScreenInfo.h / 2));
         }
 
-		if(Input.GetMouseButtonUp(0)) {
-			selected = false;
-		}
+        if(Input.GetMouseButtonUp(0)) {
+            selectedBlock = null;
+        }
 
 		UpdateColor(o); // mouse Offset
+    }
+
+    bool IsSelected() {
+        return selectedBlock == this;
     }
 
 	void HandleAutoInput() {

@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114005137240532880}
   - component: {fileID: 114447183659355512}
   - component: {fileID: 114126267446129920}
+  - component: {fileID: 114900513458302772}
   m_Layer: 0
   m_Name: InputField
   m_TagString: Untagged
@@ -177,7 +178,6 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   gradientAdjustmentRate: 0.65
   constantFlowRate: 0.01
-  selected: 0
   autoInput: 0
   autoCaptureDelay: 1
   useConstantFlow: 0
@@ -332,6 +332,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0b83b83494b8e4a8d59a665797d298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114900513458302772
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1347467237661712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8de9971743fb644739b1ba89f8a4e1d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fieldIndex: 0
 --- !u!212 &212900571472274514
 SpriteRenderer:
   m_ObjectHideFlags: 1
