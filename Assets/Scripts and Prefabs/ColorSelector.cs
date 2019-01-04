@@ -25,12 +25,11 @@ public class ColorSelector : MonoBehaviour
     }
 
     Vector2 mouseDown = Vector2.zero;
+    Vector2 mouseOffset = Vector2.zero;
+
 
     void HandleMouseInput()
     {
-
-
-        Vector2 o = Vector2.zero;
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -55,15 +54,22 @@ public class ColorSelector : MonoBehaviour
         }
         if (Input.GetMouseButton(0) && IsSelected())
         {
-            o = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - mouseDown;
-            o = new Vector2(o.x / (ScreenInfo.w / 2), o.y / (ScreenInfo.h / 2));
+            mouseOffset = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - mouseDown;
+            mouseOffset = new Vector2(mouseOffset.x / (ScreenInfo.w / 2), mouseOffset.y / (ScreenInfo.h / 2));
         }
 
         if(Input.GetMouseButtonUp(0)) {
             selectedBlock = null;
+            mouseOffset   = Vector2.zero;
         }
 
-		UpdateColor(o); // mouse Offset
+		UpdateColor(mouseOffset); // mouse Offset
+    }
+
+    public float stationaryMgn = .25f;
+
+    public bool BeingHeld() {
+        return mouseOffset.magnitude < stationaryMgn;
     }
 
     bool IsSelected() {

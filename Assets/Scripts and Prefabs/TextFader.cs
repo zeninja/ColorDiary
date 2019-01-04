@@ -11,6 +11,7 @@ public class TextFader : MonoBehaviour {
 	void Awake() {
 		start = GetComponent<Text>().color;
 	}
+	
 
 	public IEnumerator ShowText(bool val) {
 
