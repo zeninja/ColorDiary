@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TextFader : MonoBehaviour {
 
@@ -9,8 +10,9 @@ public class TextFader : MonoBehaviour {
 	Color current;
 
 	void Awake() {
-		start = GetComponent<Text>().color;
+		start = GetComponent<TMP_Text>().color;
 	}
+	
 
 	public IEnumerator ShowText(bool val) {
 
@@ -33,7 +35,7 @@ public class TextFader : MonoBehaviour {
             }
 			
 			current = new Color(start.r, start.g, start.b, a);
-			GetComponent<Text>().color = current;
+			GetComponent<TMP_Text>().color = current;
 
 			yield return new WaitForFixedUpdate();
         }

@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour {
 	private static bool showCalendar = true;
 
 	public static bool InInstructions() { return showInstructions; }
-	private static bool showInstructions = true;
+	private static bool showInstructions = false;
 
 	public static bool ShowButtons() { return showButtons; }
 	private static bool showButtons = true;

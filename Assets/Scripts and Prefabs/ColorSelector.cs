@@ -14,7 +14,7 @@ public class ColorSelector : MonoBehaviour
 
     void Start()
     {
-        s = GetComponentInChildren<SpriteRenderer>();
+        s = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -25,22 +25,27 @@ public class ColorSelector : MonoBehaviour
     }
 
     Vector2 mouseDown = Vector2.zero;
+    Vector2 mouseOffset = Vector2.zero;
+
+    public bool canAddColorToCalendar = true;
 
     void HandleMouseInput()
     {
-
-
-        Vector2 o = Vector2.zero;
-
+    
         if (Input.GetMouseButtonDown(0))
         {
             // if(GameManager.InGlossary()) { return; }
 			Vector3 downPos = Extensions.ScreenToWorld(Input.mousePosition);
             RaycastHit hitinfo;
+
+            Debug.DrawRay(downPos, Vector3.forward * 100, Color.red, 1);
+                
             if (Physics.Raycast(downPos, Vector3.forward, out hitinfo, 100))
             {
-                if (hitinfo.collider.gameObject == s.gameObject)
+                // Debug.Log("Ray");
+                if (hitinfo.collider.gameObject == gameObject)
                 {	
+                    // Debug.Log("hit");
 					selectedBlock = this;
 					mouseDown = downPos;
                     if (Time.time - lastTapTime < doubleTapThreshold)
@@ -55,15 +60,22 @@ public class ColorSelector : MonoBehaviour
         }
         if (Input.GetMouseButton(0) && IsSelected())
         {
-            o = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - mouseDown;
-            o = new Vector2(o.x / (ScreenInfo.w / 2), o.y / (ScreenInfo.h / 2));
+            mouseOffset = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - mouseDown;
+            mouseOffset = new Vector2(mouseOffset.x / (ScreenInfo.w / 2), mouseOffset.y / (ScreenInfo.h / 2));
         }
 
         if(Input.GetMouseButtonUp(0)) {
             selectedBlock = null;
+            mouseOffset   = Vector2.zero;
         }
 
-		UpdateColor(o); // mouse Offset
+		UpdateColor(mouseOffset); // mouse Offset
+    }
+
+    public float stationaryMgn = .25f;
+
+    public bool BeingHeld() {
+        return mouseOffset.magnitude < stationaryMgn;
     }
 
     bool IsSelected() {
@@ -128,6 +140,8 @@ public class ColorSelector : MonoBehaviour
 
     void SelectColor()
     {
+        if(!canAddColorToCalendar) { return; }
+
         Calendar.AddColor(selectedColorCount, bgColor);
         selectedColorCount++;
         if (selectedColorCount >= Calendar.totalDayCount)
