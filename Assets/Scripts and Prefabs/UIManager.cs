@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour {
 
 	public Glossary glossary;
 
-	public List<GameObject> ui_Buttons;
+	// public List<GameObject> ui_Buttons;
 
 	void Start() {
 		RefreshUIText();

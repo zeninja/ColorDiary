@@ -10,18 +10,18 @@ public class Glossary : MonoBehaviour
     public SpriteRenderer sprite;
     public TMP_InputField inputField;
 
+    public GameObject textFrame;
 
 
+    List<TMP_InputField> allInputFields = new List<TMP_InputField>();
 
-    List<TMP_InputField> allInputs = new List<TMP_InputField>();
-
-    List<TextFader> hideableText = new List<TextFader>();  // only hide user-generated text when showing instructions
+    List<TextFader> textFaders = new List<TextFader>();
     List<TMP_Text> userText = new List<TMP_Text>();
     List<string> savedStrings = new List<string>();
 
 
     List<string> instructionsText = new List<string>() {
-        "Press and hold a line",
+        "Tap a line",
         "to change its",
         "contents",
         "Drag inside a block",
@@ -50,6 +50,8 @@ public class Glossary : MonoBehaviour
         float blockOffset     = ScreenInfo.h / 2;
         float blockHeightHalf = blockHeight  / 2;
 
+        List<TMP_Text> placeholders = new List<TMP_Text>();
+
 		for(int i = 0; i < entryCount; i++) {
 
             float y = (entryCount - i) * blockHeight;
@@ -59,30 +61,47 @@ public class Glossary : MonoBehaviour
             s.transform.position   = new Vector3(0, y - blockOffset - blockHeightHalf, 0);
             s.transform.SetParent(transform);
 
+            GameObject t = Instantiate(textFrame);
+            t.transform.localScale = new Vector2(blockWidth, blockHeight * 1.75f);
+            t.transform.position   = new Vector3(0, y - blockOffset - blockHeightHalf, 0);
+            t.transform.SetParent(transform);
+
             TMP_InputField newInput = Instantiate(inputField);
             newInput.transform.SetParent(transform);
-            newInput.transform.localScale = Vector3.one;
-
-            newInput.transform.SetParent(s.transform);
+            newInput.transform.localScale = new Vector3 (1, 1, 1);
+            //
+            newInput.transform.SetParent(t.transform);
             newInput.transform.localPosition = Vector3.zero;
+            s.GetComponent<InputFieldSelector>().field = newInput;
 
-            hideableText.Add(newInput.GetComponentInChildren<TextFader>());
+            TMP_Text placeholder = newInput.transform.Find("Text Area/Placeholder").GetComponent<TMP_Text>();
+            TMP_Text text        = newInput.transform.Find("Text Area/Text")       .GetComponent<TMP_Text>();
+            placeholders.Add(placeholder);
 
+            newInput.GetComponent<InputFieldController>().Init(i, this);
 
-            TMP_Text placeholder = newInput.transform.Find("TextArea/Placeholder").GetComponent<TMP_Text>();
-            TMP_Text text        = newInput.transform.Find("TextArea/Text")       .GetComponent<TMP_Text>();
+            //
 
+            allInputFields.Add(newInput);
+            userText.Add(text);
+            savedStrings.Add("");
 
-
-
-
-            // newInput.GetComponent<InputFieldController>().Init();
+            textFaders.Add(text.gameObject.GetComponent<TextFader>());
+            textFaders.Add(placeholder.gameObject.GetComponent<TextFader>());
 		}
+
+        SetText(placeholders);
 	}
+    
+    void SetText(List<TMP_Text> p) {
+        for(int i = 0; i < p.Count; i++) {
+            p[i].text = instructionsText[i];
+        }
+    }
 
     public IEnumerator ShowGlossary(bool val)
     {
-        foreach (TextFader t in hideableText)
+        foreach (TextFader t in textFaders)
         {
             StartCoroutine(t.ShowText(val));
             yield return Extensions.Wait(.05f);
@@ -99,9 +118,21 @@ public class Glossary : MonoBehaviour
 
     public void ShowInstructions(bool val)
     {
-        for (int i = 0; i < userText.Count; i++)
+        for (int i = 0; i < allInputFields.Count; i++)
         {
-            allInputs[i].text = val ? "" : savedStrings[i];
+            // Setting the text of the input field to nothing ("") means that it will
+            // fallback automatically to the "placeholder" (instructions) value
+            // allInputFields[i].text = val ? "" : savedStrings[i];
+
+
+            if(val) {
+                allInputFields[i].text = "";
+            } else {
+                allInputFields[i].text = savedStrings[i];
+                Debug.Log(savedStrings[i]);
+            }
+
+            Debug.Log("Showing instructions: " + val);
         }
     }
 
@@ -124,8 +155,8 @@ public class Glossary : MonoBehaviour
 		}
 
 		Gizmos.color = Color.green;
-		foreach(TMP_InputField t in allInputs) {
-			Gizmos.DrawWireSphere(t.transform.position, .5f);
+		foreach(TMP_InputField t in allInputFields) {
+			Gizmos.DrawWireSphere(t.transform.position, .05f);
 		}
 	}
 }

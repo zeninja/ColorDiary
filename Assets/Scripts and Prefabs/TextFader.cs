@@ -35,7 +35,7 @@ public class TextFader : MonoBehaviour {
             }
 			
 			current = new Color(start.r, start.g, start.b, a);
-			GetComponent<Text>().color = current;
+			GetComponent<TMP_Text>().color = current;
 
 			yield return new WaitForFixedUpdate();
         }

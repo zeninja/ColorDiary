@@ -27,10 +27,11 @@ public class ColorSelector : MonoBehaviour
     Vector2 mouseDown = Vector2.zero;
     Vector2 mouseOffset = Vector2.zero;
 
+    public bool canAddColorToCalendar = true;
 
     void HandleMouseInput()
     {
-
+    
         if (Input.GetMouseButtonDown(0))
         {
             // if(GameManager.InGlossary()) { return; }
@@ -139,6 +140,8 @@ public class ColorSelector : MonoBehaviour
 
     void SelectColor()
     {
+        if(!canAddColorToCalendar) { return; }
+
         Calendar.AddColor(selectedColorCount, bgColor);
         selectedColorCount++;
         if (selectedColorCount >= Calendar.totalDayCount)
