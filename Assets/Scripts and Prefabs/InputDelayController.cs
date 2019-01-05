@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 
 public class InputDelayController : MonoBehaviour {
 
-	InputField field;
+	TMP_InputField field;
 	public float holdThreshold = .5f;
 	float holdDuration = 0;
 
@@ -15,8 +15,8 @@ public class InputDelayController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		field = GetComponent<InputField>();
-		GetComponent<InputField>().onValueChanged.AddListener(delegate { OnValueChanged(); });
+		field = GetComponent<TMP_InputField>();
+		GetComponent<TMP_InputField>().onValueChanged.AddListener(delegate { OnValueChanged(); });
 		colorSelector = GetComponent<ColorSelector>();
 
 
@@ -42,7 +42,7 @@ public class InputDelayController : MonoBehaviour {
 
 
 	public void OnValueChanged() {
-		GetComponentInParent<Glossary>().SaveUserText(fieldIndex, transform.Find("Text").GetComponent<Text>().text);
+		GetComponentInParent<Glossary>().SaveUserText(fieldIndex, transform.Find("Text").GetComponent<TMP_Text>().text);
 	}
 
 

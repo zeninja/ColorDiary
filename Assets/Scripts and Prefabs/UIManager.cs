@@ -17,30 +17,26 @@ public class UIManager : MonoBehaviour {
 		GameManager.GetInstance().SwitchGlossaryState();
 		StartCoroutine(glossary.ShowGlossary(GameManager.InGlossary()));
 
-		// if (!GameManager.InGlossary()) {
-
-		// }
-
 		RefreshUIText();
 	}
 
 	public void SwitchInstructionsState() {
 		GameManager.GetInstance().SwitchInstructionsState();
 		glossary.ShowInstructions(GameManager.InInstructions());
-		RefreshUIText();
+		// RefreshUIText();
 	}
 
 	public void SwitchCalendarState() {
 		GameManager.GetInstance().SwitchCalendarState();
 		StartCoroutine(Calendar.GetInstance().RefreshCalendar(GameManager.InCalendar()));
-		RefreshUIText();
+		// RefreshUIText();
 	}
 
-	public void SwitchButtonState() {
-		GameManager.GetInstance().SwitchButtonState();
-		RevealUI();
-		RefreshUIText();
-	}
+	// public void SwitchButtonState() {
+	// 	GameManager.GetInstance().SwitchButtonState();
+	// 	RevealUI();
+	// 	RefreshUIText();
+	// }
 
 	void RefreshUIText() {
 		// ui_glossaryButton.text 	   = GameManager.InGlossary() 	  ? "Hide Glossary"     : "Show Glossary";
@@ -49,16 +45,14 @@ public class UIManager : MonoBehaviour {
 		// ui_showButtons.text        = GameManager.ShowButtons()    ? "Hide Buttons"		: "Show Buttons";
 	}
 
-	public GameObject buttons;
+	// public GameObject buttons;
 	// public GameObject toggleButton;
 
-	void RevealUI() {
-		foreach(GameObject button in ui_Buttons) {
-			buttons.SetActive(GameManager.ShowButtons());
-		}
-
-
-		// toggleButton.GetComponent<Image>().enabled = GameManager.ShowButtons();
-		// toggleButton.SetActive(false);
-	}
+	// void RevealUI() {
+	// 	foreach(GameObject button in ui_Buttons) {
+	// 		buttons.SetActive(GameManager.ShowButtons());
+	// 	}
+	// 	// toggleButton.GetComponent<Image>().enabled = GameManager.ShowButtons();
+	// 	// toggleButton.SetActive(false);
+	// }
 }

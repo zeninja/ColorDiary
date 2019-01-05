@@ -14,7 +14,7 @@ public class ColorSelector : MonoBehaviour
 
     void Start()
     {
-        s = GetComponentInChildren<SpriteRenderer>();
+        s = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -36,10 +36,15 @@ public class ColorSelector : MonoBehaviour
             // if(GameManager.InGlossary()) { return; }
 			Vector3 downPos = Extensions.ScreenToWorld(Input.mousePosition);
             RaycastHit hitinfo;
+
+            Debug.DrawRay(downPos, Vector3.forward * 100, Color.red, 1);
+                
             if (Physics.Raycast(downPos, Vector3.forward, out hitinfo, 100))
             {
-                if (hitinfo.collider.gameObject == s.gameObject)
+                // Debug.Log("Ray");
+                if (hitinfo.collider.gameObject == gameObject)
                 {	
+                    // Debug.Log("hit");
 					selectedBlock = this;
 					mouseDown = downPos;
                     if (Time.time - lastTapTime < doubleTapThreshold)
