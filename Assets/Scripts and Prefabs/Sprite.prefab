@@ -84,6 +84,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   gradientAdjustmentRate: 0.65
   constantFlowRate: 0.01
+  canAddColorToCalendar: 1
   stationaryMgn: 0.1
   autoInput: 0
   autoCaptureDelay: 1

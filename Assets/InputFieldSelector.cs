@@ -7,13 +7,18 @@ public class InputFieldSelector : MonoBehaviour {
 
 	// check for input every frame (via on mouse down like in the color selector)
 	
-	public int fieldIndex;
-	public TMP_InputField field;
+	int fieldIndex;
+	TMP_InputField field;
 
 	ColorSelector colorSelector;
 
 	public  float holdThreshold = .3f;
 	private float holdDuration;
+
+	public void Init(int i, TMP_InputField f) {
+		fieldIndex = i;
+		field = f;
+	}
 
 	void Start() {
 		colorSelector = GetComponent<ColorSelector>();

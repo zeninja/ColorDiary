@@ -72,13 +72,15 @@ public class Glossary : MonoBehaviour
             //
             newInput.transform.SetParent(t.transform);
             newInput.transform.localPosition = Vector3.zero;
-            s.GetComponent<InputFieldSelector>().field = newInput;
+
 
             TMP_Text placeholder = newInput.transform.Find("Text Area/Placeholder").GetComponent<TMP_Text>();
             TMP_Text text        = newInput.transform.Find("Text Area/Text")       .GetComponent<TMP_Text>();
             placeholders.Add(placeholder);
 
             newInput.GetComponent<InputFieldController>().Init(i, this);
+
+            s.GetComponent<InputFieldSelector>().Init(i, newInput);
 
             //
 
@@ -129,10 +131,7 @@ public class Glossary : MonoBehaviour
                 allInputFields[i].text = "";
             } else {
                 allInputFields[i].text = savedStrings[i];
-                Debug.Log(savedStrings[i]);
             }
-
-            Debug.Log("Showing instructions: " + val);
         }
     }
 

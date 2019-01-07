@@ -31,6 +31,7 @@ public class InputFieldController : MonoBehaviour {
 		if(fieldIndex >= 8) {
 			inputField.interactable = false;
 			inputField.enabled = false;
+			
 		}
 
 		GetComponent<TMP_InputField>().onValueChanged.AddListener(delegate { OnValueChanged(); });
