@@ -373,8 +373,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 503c6d4529e78fb4e86fe36415586b10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fieldIndex: 0
-  field: {fileID: 0}
   holdThreshold: 0.3
 --- !u!224 &769311329 stripped
 RectTransform:
@@ -1429,6 +1427,11 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114874966743725366, guid: 1dee8395d3dd0ba4ea8c43ff14a2719a,
+        type: 2}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114722682434729980, guid: 1dee8395d3dd0ba4ea8c43ff14a2719a,
         type: 2}
       propertyPath: m_havePropertiesChanged
@@ -1438,6 +1441,11 @@ Prefab:
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114722682434729980, guid: 1dee8395d3dd0ba4ea8c43ff14a2719a,
+        type: 2}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1348490389026048, guid: 1dee8395d3dd0ba4ea8c43ff14a2719a, type: 2}
       propertyPath: m_IsActive

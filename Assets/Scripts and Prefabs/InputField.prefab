@@ -276,8 +276,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: contents
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 95af37545e1ce094dbdc3368c647eba6, type: 2}
-  m_sharedMaterial: {fileID: 21033020076636358, guid: 95af37545e1ce094dbdc3368c647eba6,
+  m_fontAsset: {fileID: 11400000, guid: 7f69ad1eccdc5854ab66bb25e44d9d53, type: 2}
+  m_sharedMaterial: {fileID: 21139071932256408, guid: 7f69ad1eccdc5854ab66bb25e44d9d53,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -302,13 +302,13 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 154.45
+  m_fontSize: 176.25
   m_fontSizeBase: 148.8
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 1000
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_textAlignment: 514
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
@@ -357,7 +357,7 @@ MonoBehaviour:
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
   m_inputSource: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -390,8 +390,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 95af37545e1ce094dbdc3368c647eba6, type: 2}
-  m_sharedMaterial: {fileID: 21033020076636358, guid: 95af37545e1ce094dbdc3368c647eba6,
+  m_fontAsset: {fileID: 11400000, guid: 7f69ad1eccdc5854ab66bb25e44d9d53, type: 2}
+  m_sharedMaterial: {fileID: 21139071932256408, guid: 7f69ad1eccdc5854ab66bb25e44d9d53,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -416,13 +416,13 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 154.45
+  m_fontSize: 176.25
   m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 1000
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_textAlignment: 514
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
@@ -471,7 +471,7 @@ MonoBehaviour:
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
   m_inputSource: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}

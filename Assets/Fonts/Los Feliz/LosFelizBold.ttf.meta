@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 289172479ec4d9d49b762938b0a7bd41
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: LosFeliz
+  fontNames:
+  - LosFeliz
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 0678ac2fee6e0a345b9822ae7c00da18, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
